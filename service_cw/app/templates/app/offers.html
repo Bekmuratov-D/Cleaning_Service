@@ -1,0 +1,10 @@
+{% extends 'app/base.html'%}
+
+{% block title %} offers {% endblock %}
+
+{% block content %} 
+    <h3>Offers</h3>
+    {% for offer in offers %}
+        <li>{{ offer }}</li>
+    {% endfor%}
+{% endblock %}
