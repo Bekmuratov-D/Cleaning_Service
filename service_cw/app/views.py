@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import Services_table, Offers_table
 
 # Create your views here.
@@ -12,8 +12,12 @@ def service(request):
         'services' : services
     })
 
-def offers(request):
+def offers(request, slug_service:str):
+    slug_service = get_object_or_404(Services_table, slug=slug_service)
     offers = Offers_table.objects.all()
     return render(request, 'app/offers.html', {
+        'slug_service' : slug_service,
         'offers' : offers
     })
+
+

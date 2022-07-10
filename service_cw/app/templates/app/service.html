@@ -3,9 +3,11 @@
 {% block title %} service {% endblock %}
 
 {% block content %} 
-        <ul>
-            {% for service in services %}
-                <li>{{ service }}</li>
-            {% endfor%}
-        </ul>
+    <h2>Услуги</h2>
+    
+    <ul>
+        {% for service in services %}
+            <li><a href="{{ service.get_url }}">{{ service }}</a></li>
+        {% endfor%}
+    </ul>
 {% endblock %}

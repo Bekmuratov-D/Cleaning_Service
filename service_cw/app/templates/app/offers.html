@@ -3,8 +3,16 @@
 {% block title %} offers {% endblock %}
 
 {% block content %} 
-    <h3>Offers</h3>
-    {% for offer in offers %}
-        <li>{{ offer }}</li>
-    {% endfor%}
+    <h3>Придложение по {{ slug_service.name }}</h3>
+    <br>
+    <hr>
+        {% for offer in offers %}
+            {% if slug_service.id == offer.service.id %}
+                <div>
+                    <h4>{{ offer }}</h4>
+                </div>
+            {% endif%}
+        {% endfor%}
+    <br>
+    <hr>
 {% endblock %}

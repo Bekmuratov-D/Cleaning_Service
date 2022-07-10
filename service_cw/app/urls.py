@@ -5,5 +5,5 @@ from .views import auth, service, offers
 urlpatterns = [
     path('', auth),
     path('service', service),
-    path('service/offers', offers),
+    path('service/<slug:slug_service>', offers, name='offers'),
 ]
