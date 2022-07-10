@@ -1,7 +1,12 @@
+{% load static %}
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <title>{% block title %} {% endblock %}</title>
 </head>
 <header class="header">
@@ -19,8 +24,14 @@
                 <li class="nav__iteam">
                     <a href="/service" class="nav__link">Услуги</a>
                 </li>
+                <li class="nav__iteam">
+                    <a href="/orders" class="nav__link">Заказы</a>
+                </li>
             </ul>
         </nav>
+        <div class="header__login-block login-block">
+            <a href="#" class="login-block__link">Log in</a>
+        </div>
     </div>
 </header>
 <body>

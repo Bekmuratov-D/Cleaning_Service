@@ -42,7 +42,11 @@ def one_offer(request, slug_offer:str):
         'offer' : offer
         })
 
-
+def all_orders(request):
+    orders = Order_table.objects.all()
+    return render(request, 'app/all_order.html', {
+        'orders' : orders
+    })
 
 
 

@@ -3,11 +3,20 @@
 {% block title %} service {% endblock %}
 
 {% block content %} 
-    <h2>Услуги</h2>
-    
-    <ul>
-        {% for service in services %}
-            <li><a href="{{ service.get_url }}">{{ service }}</a></li>
-        {% endfor%}
-    </ul>
+    <section class="banner">
+        <div class="banner__wrapper">
+            <img src="../../static/img/banner.png" width="200px" height="200px" alt="" class="banner__img">
+            <h1 class="banner__title">Сервис для заказа уборки квартир</h1>
+        </div>
+    </section>
+    <section class="content">
+        <div class="content__wrapper">
+            <h2 class="content__title">Услуги</h2>
+            <ul>
+                {% for service in services %}
+                    <li><a href="{{ service.get_url }}">{{ service }}</a></li>
+                {% endfor%}
+            </ul>
+        </div>
+    </section>
 {% endblock %}

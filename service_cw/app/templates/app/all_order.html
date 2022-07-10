@@ -1,0 +1,16 @@
+{% extends 'app/base.html'%}
+
+{% block title %} orders {% endblock %}
+
+{% block content %} 
+    <h3>Все заказы</h3>
+    <br>
+    <hr>
+        {% for order in orders %}
+            <div>
+                <h4>{{ order }}</h4>
+            </div>
+            <hr>
+        {% endfor%}
+    <br>
+{% endblock %}
