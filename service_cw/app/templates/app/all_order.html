@@ -2,15 +2,31 @@
 
 {% block title %} orders {% endblock %}
 
-{% block content %} 
-    <h3>Все заказы</h3>
-    <br>
-    <hr>
-        {% for order in orders %}
-            <div>
-                <h4>{{ order }}</h4>
-            </div>
-            <hr>
-        {% endfor%}
-    <br>
+{% block content %}
+<section class="offers">
+    <div class="offers__wrapper">
+        <h3 class="offers_title">Все заказы</h3>
+        <div class="offers__content ">
+            <h5 class="offer__h3">Всего записей - {{ agg.id__count }}</h5> <p class="offer__h3">от:{{ agg_of.price__min }}p - до:{{ agg_of.price__max }}p</p>
+            <ul class="offers__card">
+                <li class="offers__card-item">
+                    <p>Компания</p>
+                </li>
+                <li class="offers__card-item">
+                    <p>Адресс</p>
+                </li>
+                <li class="offers__card-item">
+                    <p>Tel</p>
+                </li>
+            </ul>
+            {% for order in orders %}
+                <div class="offers__card">
+                    <h4 class="offer__h3" >{{ order.offer.name }}</h4>
+                    <h4 class="offer__h3" >{{ order.address }}</h4>
+                    <h4 class="offer__h3" >{{ order.tel }}</h4>
+                </div>
+            {% endfor%}
+        </div>
+    </div>
+</section> 
 {% endblock %}

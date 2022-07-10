@@ -2,26 +2,31 @@
 
 {% block title %} {{offer.name}} {% endblock %}
 
-{% block content %} 
-    <h3>{{ offer.service }} от компани {{ offer.company }}</h3>
-    <br>
-    <hr>
-        <h4>{{ offer.service }}</h4>
-        <p>{{ offer.description }}</p>
-        <h4>{{ offer.price }}p</h4>
-    <br>
-    <hr>
-    <form action=" {{ offer.get_url }} " method="post">
-        {% csrf_token %}
-
-        {% for field in form %}
-            <div class="from-style {% if field.errors %} errors {% endif %}">
-                {{ field.label_tag }}
-                {{ field.errors }}
-                {{ field }}
-            </div>
-        {% endfor%}
-        
-        <button type="submit">Отправить</button>
-    </form>
+{% block content %}
+<section class="offers">
+    <div class="offers__wrapper">
+        <h3>{{ offer.service }} от компани {{ offer.company }}</h3>
+        <hr>
+        <div class="offers__content">
+            <h4>{{ offer.service }}</h4>
+            <p>{{ offer.description }}</p>
+            <h4>{{ offer.price }}p</h4>
+        </div>
+        <hr>
+        <div class="offers__content">
+            <form class="offers__form form" action=" {{ offer.get_url }} " method="post">
+                {% csrf_token %}
+                {% for field in form %}
+                    <div class="form_div {% if field.errors %} errors {% endif %}">
+                        {{ field.label_tag }}
+                        {{ field.errors }}
+                        {{ field }}
+                    </div>
+                {% endfor%}
+                
+                <button class="form__button" type="submit">Закаать</button>
+            </form>
+        </div>
+    </div>
+</section> 
 {% endblock %}

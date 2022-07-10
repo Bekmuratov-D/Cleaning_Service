@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponseRedirect
 from .models import Services_table, Offers_table, Order_table
 from .forms import OrderForm
+from django.db.models import F, Sum, Max, Min, Count, Avg, Value
 
 # Create your views here.
 
@@ -44,8 +45,13 @@ def one_offer(request, slug_offer:str):
 
 def all_orders(request):
     orders = Order_table.objects.all()
+    offers = Offers_table.objects.all()
+    agg_of = offers.aggregate(Min('price'), Max('price'))
+    agg = orders.aggregate(Count('id'))
     return render(request, 'app/all_order.html', {
-        'orders' : orders
+        'orders' : orders,
+        'agg': agg,
+        'agg_of' : agg_of
     })
 
 

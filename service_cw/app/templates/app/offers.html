@@ -3,16 +3,37 @@
 {% block title %} offers {% endblock %}
 
 {% block content %} 
-    <h3>Придложение по {{ slug_service.name }}</h3>
-    <br>
-    <hr>
-        {% for offer in offers %}
-            {% if slug_service.id == offer.service.id %}
-                <div>
-                    <h4><a href="{{ offer.get_url }}">{{ offer }}</a></h4>
-                </div>
-            {% endif%}
-        {% endfor%}
-    <br>
-    <hr>
+    <section class="offers">
+        <div class="offers__wrapper">
+            <h3 class="offers_title">Придложение по услуге {{ slug_service.name }}:</h3>
+            <div class="offers__content">
+                <ul class="offers__card">
+                    <li class="offers__card-item">
+                        <p>Услуга</p>
+                    </li>
+                    <li class="offers__card-item">
+                        <p>Компания</p>
+                    </li>
+                    <li class="offers__card-item">
+                        <p>Цена</p>
+                    </li>
+                </ul>
+                {% for offer in offers %}
+                    {% if slug_service.id == offer.service.id %}
+                        <ul class="offers__card">
+                            <li class="offers__card-item">
+                                <a class="offers__link" href="{{ offer.get_url }}">{{ offer.name }}</a>
+                            </li>
+                            <li class="offers__card-item">
+                                <a class="offers__link" href="{{ offer.get_url }}">{{ offer.company }}</a>
+                            </li>
+                            <li class="offers__card-item">
+                                <a class="offers__link" href="{{ offer.get_url }}">{{ offer.price }}p</a>
+                            </li>
+                        </ul>
+                    {% endif%}
+                {% endfor%}
+            </div>
+        </div>
+    </section>
 {% endblock %}

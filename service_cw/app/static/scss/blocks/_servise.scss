@@ -1,0 +1,53 @@
+.banner{
+    background-color:rgb(155, 150, 150)
+}
+.banner__wrapper{
+    padding: 10px;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .banner__img{
+        margin-left: 10px;
+    }
+    .banner__title{
+        margin-right: 10px;
+        font-size: 55px;
+        font-weight: 600;
+        color: rgb(36, 6, 16);
+    }
+}
+.content__wrapper{
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: rgb(207, 224, 232);
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 25px;
+    .content__title{
+        align-self: center;
+        color: rgb(56, 56, 56);
+        font-size: 26px;
+        margin-left: 40px;
+    }
+    .content__cards{
+        display: grid;
+        grid-template: 350px 350px 350px 350px/ 1fr 1fr 1fr;
+        gap: 10px;
+        .content__card{
+            background-color: white;
+            border-radius: 25px;
+            .card__img-container{
+                margin-bottom: 30px;
+            }
+            .card__link{
+                padding: 10px;
+                margin: 50px 50px 30px 50px;
+                font-size: 23px;
+                font-weight: bold;
+                color: rgb(47, 48, 48);
+            }
+        }
+    }
+}

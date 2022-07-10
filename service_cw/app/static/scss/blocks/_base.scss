@@ -1,8 +1,8 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&family=Poppins&family=Roboto+Mono:wght@100;200;300;400;500;600;700&family=Roboto:wght@300&display=swap');
 
 html{
     font-size: 20px;
-    font-family: sans-serif;
+    font-family: 'Roboto';
 }
 
 a{
@@ -39,6 +39,7 @@ ul{
 .nav__link{
     color: rgb(77, 76, 76);
     font-weight: bold;
+    font-size: 14px;
 }
 
 .login-block__link{
@@ -47,4 +48,10 @@ ul{
     padding: 10px 15px;
     background-color: rgb(16, 113, 1);
     border-radius: 5px;
+}
+
+footer{
+    margin-top: 40px;
+    background-color: rgb(40, 39, 39);
+    height: 200px;
 }

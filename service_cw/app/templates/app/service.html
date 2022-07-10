@@ -12,11 +12,16 @@
     <section class="content">
         <div class="content__wrapper">
             <h2 class="content__title">Услуги</h2>
-            <ul>
+            <div class="content__cards">
                 {% for service in services %}
-                    <li><a href="{{ service.get_url }}">{{ service }}</a></li>
+                    <div class="content__card card">
+                        <div class="card__img-container">
+                            <a class="card_link-img" href="{{ service.get_url }}"><img src="../../static/img/x1.png" alt="" class="card_img"></a>
+                        </div>
+                        <a class="card__link" href="{{ service.get_url }}">{{ service }}</a>
+                    </div>
                 {% endfor%}
-            </ul>
+            </div>
         </div>
     </section>
 {% endblock %}
