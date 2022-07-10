@@ -35,3 +35,9 @@ class Offers_table(models.Model):
     def get_url(self):
         return reverse ('one_offer', args=[self.slug])
 
+class Order_table(models.Model):
+    offer = models.ForeignKey(Offers_table, on_delete=models.PROTECT, null=True, blank=True)
+    address = models.CharField(max_length=200, blank=True)
+    tel = models.IntegerField()
+    def __str__(self):                         
+        return f'{self.offer} - {self.tel}'

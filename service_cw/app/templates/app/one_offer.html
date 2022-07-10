@@ -11,4 +11,17 @@
         <h4>{{ offer.price }}p</h4>
     <br>
     <hr>
+    <form action=" {{ offer.get_url }} " method="post">
+        {% csrf_token %}
+
+        {% for field in form %}
+            <div class="from-style {% if field.errors %} errors {% endif %}">
+                {{ field.label_tag }}
+                {{ field.errors }}
+                {{ field }}
+            </div>
+        {% endfor%}
+        
+        <button type="submit">Отправить</button>
+    </form>
 {% endblock %}

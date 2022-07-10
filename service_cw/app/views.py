@@ -1,5 +1,7 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Services_table, Offers_table
+from django.http import HttpResponseRedirect
+from .models import Services_table, Offers_table, Order_table
+from .forms import OrderForm
 
 # Create your views here.
 
@@ -22,9 +24,25 @@ def offers(request, slug_service:str):
 
 def one_offer(request, slug_offer:str):
     offer = get_object_or_404(Offers_table, slug=slug_offer)
-    return render(request, 'app/one_offer.html', {
+    if request.method == 'POST':
+        form = OrderForm(request.POST)
+        if form.is_valid():
+            print(form.cleaned_data)
+            order = Order_table(
+                address=form.cleaned_data['address'],
+                tel=form.cleaned_data['tel'],
+                offer = get_object_or_404(Offers_table, slug=slug_offer)
+            )
+            order.save()
+            return HttpResponseRedirect('#')
+    else:
+        form = OrderForm()
+    return render(request, 'app/one_offer.html', context={
+        'form': form,
         'offer' : offer
-    })
+        })
+
+
 
 
 
