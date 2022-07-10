@@ -20,4 +20,11 @@ def offers(request, slug_service:str):
         'offers' : offers
     })
 
+def one_offer(request, slug_offer:str):
+    offer = get_object_or_404(Offers_table, slug=slug_offer)
+    return render(request, 'app/one_offer.html', {
+        'offer' : offer
+    })
+
+
 

@@ -9,7 +9,7 @@
         {% for offer in offers %}
             {% if slug_service.id == offer.service.id %}
                 <div>
-                    <h4>{{ offer }}</h4>
+                    <h4><a href="{{ offer.get_url }}">{{ offer }}</a></h4>
                 </div>
             {% endif%}
         {% endfor%}

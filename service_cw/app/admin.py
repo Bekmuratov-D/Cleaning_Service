@@ -4,15 +4,18 @@ from .models import Services_table, Offers_table, Company_table
 # Register your models here.
 
 @admin.register(Services_table)
-class MovieAdmin(admin.ModelAdmin):
+class Services_tableAdmin(admin.ModelAdmin):
     list_display = ['name', 'slug']
+    prepopulated_fields = {'slug' : ('name', )} 
 
 
 
 @admin.register(Offers_table)
-class MovieAdmin(admin.ModelAdmin):
+class Offers_tableAdmin(admin.ModelAdmin):
     list_display = ['name', 'service', 'price', 'company']
+    prepopulated_fields = {'slug' : ('name', 'company' , )} 
 
 @admin.register(Company_table)
-class MovieAdmin(admin.ModelAdmin):
+class Company_tabledmin(admin.ModelAdmin):
     list_display = ['name']
+    prepopulated_fields = {'slug' : ('name', )} 

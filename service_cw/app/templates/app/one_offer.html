@@ -1,0 +1,14 @@
+{% extends 'app/base.html'%}
+
+{% block title %} {{offer.name}} {% endblock %}
+
+{% block content %} 
+    <h3>{{ offer.service }} от компани {{ offer.company }}</h3>
+    <br>
+    <hr>
+        <h4>{{ offer.service }}</h4>
+        <p>{{ offer.description }}</p>
+        <h4>{{ offer.price }}p</h4>
+    <br>
+    <hr>
+{% endblock %}
